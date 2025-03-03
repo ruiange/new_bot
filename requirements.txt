@@ -1,2 +1,5 @@
 wcferry
 openai
+dotenv
+python-dotenv
+requests

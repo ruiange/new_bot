@@ -5,6 +5,8 @@ import time
 from datetime import datetime
 import os
 import xml.etree.ElementTree as ET
+
+from server.commander import bot_commander
 from server.send_text import send_text_message
 from utils.ai_reply import ai_reply
 
@@ -55,6 +57,10 @@ def listen_for_messages(wcf):
                    logging.info(reply)
                    if reply:
                     send_text_message(wcf, msg.roomid, reply)
+
+                # 检查是否为文本消息
+                if msg.is_text():
+                    bot_commander(wcf,msg)
 
                 logging.info('---------------end--------------------')
         except Empty:
