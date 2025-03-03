@@ -62,4 +62,7 @@ Desktop.ini
 *.msix
 
 # 不忽略微信安装包
-!WeChatSetup-3.9.11.25.exe 
+!WeChatSetup-3.9.11.25.exe
+
+
+.env
