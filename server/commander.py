@@ -36,7 +36,8 @@ def bot_commander(wcf, msg):
                 logging.info("下载完成: %s", file_path)
                 # 等待1秒执行
                 time.sleep(1)
-                send_image_message(wcf, msg.roomid, file_path)
+                if file_path:
+                   send_image_message(wcf, msg.roomid, file_path)
         except ValueError as e:
             # 如果响应文本不是有效的 JSON，记录错误信息
             logging.error("无法解析 JSON 数据: %s", e)
