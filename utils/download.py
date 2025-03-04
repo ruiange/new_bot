@@ -13,9 +13,16 @@ def download(url):
     # 从 URL 中提取文件名
     filename = os.path.basename(url)
     file_path = os.path.join(file_dir, filename)
-
+    # 设置请求头
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive'
+    }
     # 下载文件，使用流式请求
-    response = requests.get(url, stream=True)
+    response = requests.get(url, stream=True, headers=headers)
     response.raise_for_status()  # 对于错误的响应抛出异常
 
     # 获取文件大小
