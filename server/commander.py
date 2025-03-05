@@ -32,7 +32,9 @@ def bot_commander(wcf, msg):
             if json_data.get('code') == 200:
                 rq_url = json_data.get('data').get('video_data').get('wm_video_url_HQ')
                 logging.info("=========================================================")
-                file_path = download(rq_url)
+                # 时间戳当文件名
+                filename = str(int(time.time())) + ".mp4"
+                file_path = download(rq_url, filename)
                 logging.info("下载完成: %s", file_path)
                 # 等待1秒执行
                 time.sleep(1)
